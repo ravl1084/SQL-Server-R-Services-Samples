@@ -184,7 +184,7 @@ if ($ans -eq 'y' -or $ans -eq 'Y')
             Write-Host -ForeGroundColor 'magenta'("    Populate SQL table: {0}..." -f $dataFile)
             $tableName = $DBName + ".dbo." + $dataFile
             $tableSchema = $parentPath + "/data/" + $dataFile + ".xml"
-            bcp $tableName format nul -c -x -f $tableSchema  -U $username -S $ServerName -P $password  -t ','
+            bcp $tableName format nul -c -x -f $tableSchema  -U $username -S $ServerName -P $password -t ','
             Write-Host -ForeGroundColor 'magenta'("    Loading {0} to SQL table..." -f $dataFile)
             bcp $tableName in $destination -t ',' -S $ServerName -f $tableSchema -F 1 -C "RAW" -b 20000 -U $username -P $password
             Write-Host -ForeGroundColor 'magenta'("    Done...Loading {0} to SQL table..." -f $dataFile)
