@@ -40,18 +40,21 @@ To run the scripts, you must prepare the following environment:
  * An instance of SQL Server 2016 CTP 3 or later, with SQL Server R Services installed and configured
  * A SQL login and password. The SQL login must have permissions to execute R scripts
  * A database on the instance in which the login has been granted the permission to create and execute stored procedures
- 
  * For more information about SQL Server 2016 and SQL Server R Services, please visit:
    https://msdn.microsoft.com/en-us/library/mt604847.aspx
 
 ###WORKFLOW AUTOMATION
 -------------------
 
-The end-to-end workflow is fully automated by using a PowerShell script. To learn how to run the script, open a PowerShell command prompt, and type:
+FIXME: The end-to-end workflow is fully automated by using a PowerShell script. To learn how to run the script, open a PowerShell command prompt, and type:
 
 	Get-Help SQLR-Retail-Forecasting.ps1 
 
-To train and evaluate the models, you may run it as:
+To train and evaluate the models, first set up your PowerShell:
+
+  Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+
+Then execute the script:
 
 	SQLR-Retail-Forecasting.ps1 -server [SQL Server instance name] -dbname [database name] 
 
